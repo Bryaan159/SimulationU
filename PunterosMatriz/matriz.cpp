@@ -67,6 +67,10 @@ int main(){
     }
     // Se puede acceder a sus funciones
     matrix[0][0] = 1;
+    matrix[0][1] = 2;
+    matrix[0][2] = 3;
+    matrix[1][0] = 4;
+    matrix[1][1] = 5;
     cout<<*(*(matrix+0))<<endl;
 
     cout<<"--------------------------------------\n";
@@ -80,7 +84,30 @@ int main(){
     //Liberacion de memoria
     free(datos);
     cout<<datos[0]<<endl;
-    //
+
+    /*
+    //Para matriz
+    cout<<*(*(matrix+0))<<endl;
+    cout<<"Liberacion de memoria para matriz"<<endl;
+    for(int i=0; i<n;i++){
+        free(*(matrix+i));
+    }
+    free(matrix);
+    cout<<*(*(matrix+0))<<endl;*/
+
+    cout<<"--------------------------------------\n";
+    cout<<"--------------------------------------\n";
+    cout<<"Optimizando el recorrido de matrices";
+    int row = 3;
+    int &col = row;
+
+    cout<<"La matriz es: "<<endl;
+    for(int i =0; i<row; i++){
+        for(int j=0; j<col; j++){
+            cout<<*(*(matrix+i)+j)<<" ";
+        }
+        cout<<endl;
+    }
 
     return 0;
 }
